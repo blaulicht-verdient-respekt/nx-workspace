@@ -15,4 +15,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}'
           projectId: bvr-app-website
-          entryPoint: 'apps/app-website'
+          entryPoint: 'dist/apps/app-website'
