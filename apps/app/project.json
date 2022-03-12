@@ -16,6 +16,7 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/app/src/assets",
+          "apps/app/src/firebase.json",
           {
             "glob": "**/*.svg",
             "input": "node_modules/ionicons/dist/ionicons/svg",

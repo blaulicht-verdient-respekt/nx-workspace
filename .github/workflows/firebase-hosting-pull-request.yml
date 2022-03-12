@@ -13,6 +13,12 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}'
+          projectId: bvr-app-4fff0
+          entryPoint: 'dist/apps/app'
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}'
           projectId: bvr-app-website
           entryPoint: 'dist/apps/app-website'
