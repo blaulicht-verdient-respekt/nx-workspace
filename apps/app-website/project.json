@@ -19,7 +19,7 @@
           "apps/app-website/src/firebase.json",
           "apps/app-website/src/assets"
         ],
-        "styles": ["node_modules/startbootstrap-new-age/dist/css/styles.css", "apps/app-website/src/styles.scss"],
+        "styles": ["apps/app-website/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
