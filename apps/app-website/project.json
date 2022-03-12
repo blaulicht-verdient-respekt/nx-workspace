@@ -1,0 +1,95 @@
+{
+  "projectType": "application",
+  "root": "apps/app-website",
+  "sourceRoot": "apps/app-website/src",
+  "prefix": "bvr",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/app-website",
+        "index": "apps/app-website/src/index.html",
+        "main": "apps/app-website/src/main.ts",
+        "polyfills": "apps/app-website/src/polyfills.ts",
+        "tsConfig": "apps/app-website/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/app-website/src/favicon.ico",
+          "apps/app-website/src/firebase.json",
+          "apps/app-website/src/assets"
+        ],
+        "styles": ["apps/app-website/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/app-website/src/environments/environment.ts",
+              "with": "apps/app-website/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "app-website:build:production"
+        },
+        "development": {
+          "browserTarget": "app-website:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "app-website:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/app-website/src/**/*.ts",
+          "apps/app-website/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/app-website"],
+      "options": {
+        "jestConfig": "apps/app-website/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
