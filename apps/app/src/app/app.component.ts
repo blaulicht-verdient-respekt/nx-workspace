@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import packageInfo from '../../package.json';
 
 @Component({
   selector: 'bvr-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+
+  public readonly packageInfo = packageInfo;
+
+  constructor() {
+    console.log(this.packageInfo)
+  }
 }
