@@ -8,8 +8,11 @@ name: Release
       - main
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
+      - name: Print Versions
+        run: 'xcodebuild -version'
+
       - name: Checkout
         uses: actions/checkout@v2
 
