@@ -7,7 +7,7 @@
     "@semantic-release/npm",
     [
       "@semantic-release/exec", {
-        "publishCmd": "nx affected --target=release --args=\"--version=${nextRelease.version}\""
+        "publishCmd": "nx affected --target=release --base=${lastRelease.gitHead} --args=\"--version=${nextRelease.version}\""
       }
     ]
   ]
