@@ -25,7 +25,7 @@ jobs:
         run: |
           echo $FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 >> $RUNNER_TEMP/firebase_service_account_bvr_app_4fff0.json
           echo $FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE >> $RUNNER_TEMP/firebase_service_account_bvr_app_website.json
-          echo "write secrets to $RUNNER_TEMP"
+          echo "wrote secret files to $RUNNER_TEMP"
         shell: bash
         env:
           FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}
