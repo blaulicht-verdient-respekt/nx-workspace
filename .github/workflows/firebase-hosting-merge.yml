@@ -18,21 +18,23 @@ jobs:
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: 'npm run ci:release && cat dist/apps/app/package.json'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}
+          FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}
+        run: 'npm run ci:release'
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}'
-          channelId: live
-          projectId: bvr-app-4fff0
-          entryPoint: 'dist/apps/app'
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}'
-          channelId: live
-          projectId: bvr-app-website
-          entryPoint: 'dist/apps/app-website'
+#      - uses: FirebaseExtended/action-hosting-deploy@v0
+#        with:
+#          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+#          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}'
+#          channelId: live
+#          projectId: bvr-app-4fff0
+#          entryPoint: 'dist/apps/app'
+#      - uses: FirebaseExtended/action-hosting-deploy@v0
+#        with:
+#          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+#          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}'
+#          channelId: live
+#          projectId: bvr-app-website
+#          entryPoint: 'dist/apps/app-website'

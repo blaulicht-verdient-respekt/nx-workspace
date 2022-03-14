@@ -1,5 +1,6 @@
 {
   "name": "app",
+  "version": "0.0.0-development",
   "devDependencies": {
     "@capacitor/cli": "^3.2.5"
   }
