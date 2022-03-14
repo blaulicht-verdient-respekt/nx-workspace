@@ -21,13 +21,20 @@ jobs:
       - name: Install
         run: 'npm ci'
 
+      - name: Provide Secrets
+        run: |
+          echo $FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 >> $RUNNER_TEMP/firebase_service_account_bvr_app_4fff0.json
+          echo $FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE >> $RUNNER_TEMP/firebase_service_account_bvr_app_website.json
+        shell: bash
+        env:
+          FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}
+          FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}
+
       - name: Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}
-          FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}
-        run: 'npm run ci:release'
+        run: 'ls -la && npm run ci:release'
 
 #      - uses: FirebaseExtended/action-hosting-deploy@v0
 #        with:

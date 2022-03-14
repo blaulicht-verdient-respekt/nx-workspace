@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/app",
         "index": "apps/app/src/index.html",
@@ -85,12 +87,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/app/src/**/*.ts", "apps/app/src/**/*.html"]
+        "lintFilePatterns": [
+          "apps/app/src/**/*.ts",
+          "apps/app/src/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/app"],
+      "outputs": [
+        "coverage/apps/app"
+      ],
       "options": {
         "jestConfig": "apps/app/jest.config.js",
         "passWithNoTests": true
@@ -197,8 +204,9 @@
             "command": "ng build app --prod",
             "forwardAllArgs": false
           },
+          "ls -la $RUNNER_TEMP",
           {
-            "command": "cd dist/apps/app && echo \"$FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0\" && firebase deploy --project bvr-app-4fff0 --token $FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0",
+            "command": "cd dist/apps/app && GOOGLE_APPLICATION_CREDENTIALS=\"$RUNNER_TEMP/firebase_service_account_bvr_app_4fff0.json\" && echo $GOOGLE_APPLICATION_CREDENTIALS firebase deploy --project bvr-app-4fff0",
             "forwardAllArgs": false
           }
         ]
