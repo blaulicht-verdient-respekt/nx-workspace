@@ -200,6 +200,7 @@
         "parallel": false,
         "commands": [
           "cd apps/app && npm version {args.version}",
+          "nx run app:sync:ios && nx run app:sync:android",
           {
             "command": "ng build app --prod",
             "forwardAllArgs": false
