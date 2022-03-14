@@ -204,7 +204,6 @@
             "command": "ng build app --prod",
             "forwardAllArgs": false
           },
-          "ls -la $RUNNER_TEMP",
           {
             "command": "cd dist/apps/app && GOOGLE_APPLICATION_CREDENTIALS=\"$RUNNER_TEMP/firebase_service_account_bvr_app_4fff0.json\" && firebase deploy --project bvr-app-4fff0",
             "forwardAllArgs": false
