@@ -194,7 +194,7 @@
           {
             "command": "nx build app --prod",
             "forwardAllArgs": false
-          },
+          }
         ],
         "cwd": "apps/app",
         "parallel": false
