@@ -205,11 +205,7 @@
             "forwardAllArgs": false
           },
           {
-            "command": "GOOGLE_APPLICATION_CREDENTIALS=\"$RUNNER_TEMP/firebase_service_account_bvr_app_4fff0.json\" && echo $GOOGLE_APPLICATION_CREDENTIALS && cat $GOOGLE_APPLICATION_CREDENTIALS",
-            "forwardAllArgs": false
-          },
-          {
-            "command": "cd dist/apps/app && GOOGLE_APPLICATION_CREDENTIALS=\"$RUNNER_TEMP/firebase_service_account_bvr_app_4fff0.json\" && firebase deploy --project bvr-app-4fff0",
+            "command": "cd dist/apps/app && firebase deploy --project bvr-app-4fff0",
             "forwardAllArgs": false
           }
         ]
