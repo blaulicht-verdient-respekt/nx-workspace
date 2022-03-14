@@ -205,7 +205,7 @@
             "forwardAllArgs": false
           },
           {
-            "description": "Set MARKETING_VERSION to {args.version}",
+            "description": "Set CURRENT_PROJECT_VERSION to $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT",
             "command": "sed -i '' -e 's/CURRENT_PROJECT_VERSION \\= [^\\;]*\\;/CURRENT_PROJECT_VERSION = \"$GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\";/' App.xcodeproj/project.pbxproj",
             "forwardAllArgs": false
           },
@@ -245,10 +245,6 @@
         "commands": [
           "cd apps/app && npm version {args.version}",
           {
-            "command": "nx run app:sync:ios && nx run app:sync:android",
-            "forwardAllArgs": false
-          },
-          {
             "command": "nx build app --prod",
             "forwardAllArgs": false
           },
@@ -257,7 +253,7 @@
             "forwardAllArgs": false
           },
           {
-            "command": "nx xcodebuild:release app --version={args.version}",
+            "command": "nx run app:sync:ios && nx run app:sync:android && nx xcodebuild:release app --version={args.version}",
             "forwardAllArgs": false
           }
         ]
