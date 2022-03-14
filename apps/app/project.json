@@ -185,6 +185,20 @@
           "cmd": "update android"
         }
       }
+    },
+    "release": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "npm version {args.version}",
+          {
+            "command": "nx build app --prod",
+            "forwardAllArgs": false
+          },
+        ],
+        "cwd": "apps/app",
+        "parallel": false
+      }
     }
   },
   "tags": []
