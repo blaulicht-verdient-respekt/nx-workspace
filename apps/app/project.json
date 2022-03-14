@@ -198,7 +198,7 @@
             "forwardAllArgs": false
           },
           {
-            "command": "cd dist/apps/app && firebase deploy --project bvr-app-4fff0 --token $FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0",
+            "command": "cd dist/apps/app && echo \"$FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0\" && firebase deploy --project bvr-app-4fff0 --token $FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0",
             "forwardAllArgs": false
           }
         ]
