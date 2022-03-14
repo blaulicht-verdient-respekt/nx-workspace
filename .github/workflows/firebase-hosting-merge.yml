@@ -10,9 +10,6 @@ jobs:
   build_and_deploy:
     runs-on: macos-latest
     steps:
-      - name: Print Versions
-        run: 'xcodebuild -version'
-
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -26,34 +23,9 @@ jobs:
         if: steps.cache-node.outputs.cache-hit != 'true'
         run: 'npm ci'
 
-#      - name: Provide Secrets
-#        run: |
-#          echo $FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 >> $RUNNER_TEMP/firebase_service_account_bvr_app_4fff0.json
-#          echo $FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE >> $RUNNER_TEMP/firebase_service_account_bvr_app_website.json
-#          echo "wrote secret files to $RUNNER_TEMP"
-#        shell: bash
-#        env:
-#          FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}
-#          FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}
-
       - name: Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: 'npm run ci:release'
-
-#      - uses: FirebaseExtended/action-hosting-deploy@v0
-#        with:
-#          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-#          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_4FFF0 }}'
-#          channelId: live
-#          projectId: bvr-app-4fff0
-#          entryPoint: 'dist/apps/app'
-#      - uses: FirebaseExtended/action-hosting-deploy@v0
-#        with:
-#          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-#          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE }}'
-#          channelId: live
-#          projectId: bvr-app-website
-#          entryPoint: 'dist/apps/app-website'

@@ -193,6 +193,50 @@
         }
       }
     },
+    "xcodebuild:release": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "./apps/app/ios/App",
+        "parallel": false,
+        "commands": [
+          {
+            "description": "Set MARKETING_VERSION to {args.version}",
+            "command": "sed -i '' -e 's/MARKETING_VERSION \\= [^\\;]*\\;/MARKETING_VERSION = {args.version};/' App.xcodeproj/project.pbxproj",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Set MARKETING_VERSION to {args.version}",
+            "command": "sed -i '' -e 's/CURRENT_PROJECT_VERSION \\= [^\\;]*\\;/CURRENT_PROJECT_VERSION = \"$GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\";/' App.xcodeproj/project.pbxproj",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Basic lesson on iOS development: always clean your project! @see https://medium.com/passei-direto-product-and-technology/from-xcode-to-testflight-using-command-line-288c3a85bd93",
+            "command": "xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release clean",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Install dependencies",
+            "command": "pod install",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Archive the project",
+            "command": "xcodebuild -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath \"./build/App.xcarchive\"",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Export the .ipa file",
+            "command": "xcodebuild -exportArchive -archivePath \"./build/App.xcarchive\" -exportOptionsPlist exportOptions.plist -exportPath \"./build\" -allowProvisioningUpdates",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Publish the app",
+            "command": "xcrun altool --upload-app -t ios -f \"./build/App.ipa\" -u $APPLE_PUBLISH_USER -p $APPLE_PUBLISH_TOKEN",
+            "forwardAllArgs": false
+          }
+        ]
+      }
+    },
     "release": {
       "builder": "@nrwl/workspace:run-commands",
       "options": {
@@ -200,13 +244,20 @@
         "parallel": false,
         "commands": [
           "cd apps/app && npm version {args.version}",
-          "nx run app:sync:ios && nx run app:sync:android",
           {
-            "command": "ng build app --prod",
+            "command": "nx run app:sync:ios && nx run app:sync:android",
+            "forwardAllArgs": false
+          },
+          {
+            "command": "nx build app --prod",
             "forwardAllArgs": false
           },
           {
             "command": "cd dist/apps/app && firebase deploy --project bvr-app-4fff0",
+            "forwardAllArgs": false
+          },
+          {
+            "command": "nx xcodebuild:release app --version={args.version}",
             "forwardAllArgs": false
           }
         ]
