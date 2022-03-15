@@ -32,9 +32,9 @@ export class Tab1Page {
   }
 
   start() {
-    if (!this.platform.is('mobile')) {
-      return;
-    }
+    // if (!this.platform.is('mobile')) {
+    //   return;
+    // }
 
     this.interval = setInterval(async () => {
       await this.flashlight.toggle();
