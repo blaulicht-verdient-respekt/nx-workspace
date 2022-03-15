@@ -9,7 +9,7 @@
     <key>provisioningProfiles</key>
     <dict>
       <key>de.blaulicht-app.app</key>
-      <string>Blaulicht App</string>
+      <string>Blaulicht App - AppStore</string>
     </dict>
 </dict>
 </plist>
