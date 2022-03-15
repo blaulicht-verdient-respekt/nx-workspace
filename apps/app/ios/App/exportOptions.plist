@@ -8,8 +8,8 @@
     <string>QJGQJZT8BD</string>
     <key>provisioningProfiles</key>
     <dict>
-        <key>b2b5877d-0f4f-4507-92cf-776cd3930974</key>
-        <string>app-store</string>
+      <key>de.blaulicht-app.app</key>
+      <string>Blaulicht App</string>
     </dict>
 </dict>
 </plist>
