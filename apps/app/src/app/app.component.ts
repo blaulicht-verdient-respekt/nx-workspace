@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import packageInfo from '../../package.json';
 
 @Component({
   selector: 'bvr-root',
@@ -8,9 +7,4 @@ import packageInfo from '../../package.json';
 })
 export class AppComponent {
 
-  public readonly packageInfo = packageInfo;
-
-  constructor() {
-    console.log(this.packageInfo)
-  }
 }
