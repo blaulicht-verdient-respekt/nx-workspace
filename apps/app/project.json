@@ -211,7 +211,7 @@
           },
           {
             "description": "Basic lesson on iOS development: always clean your project! @see https://medium.com/passei-direto-product-and-technology/from-xcode-to-testflight-using-command-line-288c3a85bd93",
-            "command": "xcodebuild -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release clean",
+            "command": "xcodebuild -quiet -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release clean",
             "forwardAllArgs": false
           },
           {
@@ -221,12 +221,12 @@
           },
           {
             "description": "Archive the project",
-            "command": "xcodebuild OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath \"./build/App.xcarchive\"",
+            "command": "xcodebuild OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -quiet -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath \"./build/App.xcarchive\"",
             "forwardAllArgs": false
           },
           {
             "description": "Export the .ipa file",
-            "command": "xcodebuild OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -exportArchive -archivePath \"./build/App.xcarchive\" -exportOptionsPlist exportOptions.plist -exportPath \"./build\" -allowProvisioningUpdates",
+            "command": "xcodebuild OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -quiet -exportArchive -archivePath \"./build/App.xcarchive\" -exportOptionsPlist exportOptions.plist -exportPath \"./build\" -allowProvisioningUpdates",
             "forwardAllArgs": false
           },
           {
