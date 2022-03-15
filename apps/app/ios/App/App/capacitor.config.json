@@ -1,5 +1,5 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "de.blaulicht-app.app",
 	"appName": "app",
 	"webDir": "../../dist/apps/app",
 	"bundledWebRuntime": false
