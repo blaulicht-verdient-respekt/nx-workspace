@@ -220,6 +220,11 @@
             "forwardAllArgs": false
           },
           {
+            "description": "Print exportOptions",
+            "command": "/usr/libexec/PlistBuddy -c \"Print\" ./exportOptions.plist",
+            "forwardAllArgs": false
+          },
+          {
             "description": "Basic lesson on iOS development: always clean your project! @see https://medium.com/passei-direto-product-and-technology/from-xcode-to-testflight-using-command-line-288c3a85bd93",
             "command": "xcodebuild -quiet -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release clean",
             "forwardAllArgs": false
@@ -237,6 +242,11 @@
           {
             "description": "Export the .ipa file",
             "command": "xcodebuild OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -quiet -exportArchive -archivePath \"./build/App.xcarchive\" -exportOptionsPlist exportOptions.plist -exportPath \"./build\" -allowProvisioningUpdates",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Print exportOptions",
+            "command": "/usr/libexec/PlistBuddy -c \"Print\" ./exportOptions.plist",
             "forwardAllArgs": false
           },
           {
