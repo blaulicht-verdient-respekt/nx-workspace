@@ -210,6 +210,16 @@
             "forwardAllArgs": false
           },
           {
+            "description": "Set CFBundleVersion",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion string $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\" ./exportOptions.plist",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Set CFBundleShortVersionString",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString string {args.version}\" ./exportOptions.plist",
+            "forwardAllArgs": false
+          },
+          {
             "description": "Basic lesson on iOS development: always clean your project! @see https://medium.com/passei-direto-product-and-technology/from-xcode-to-testflight-using-command-line-288c3a85bd93",
             "command": "xcodebuild -quiet -workspace App.xcworkspace -scheme App -sdk iphoneos -configuration Release clean",
             "forwardAllArgs": false
