@@ -277,7 +277,7 @@
         "parallel": false,
         "commands": [
           "cd apps/app && npm version {args.version}",
-          "cordova-res ios --skip-config --copy --ios-project=\"ios/App\"",
+          "npm run cordova-res ios --skip-config --copy --ios-project=\"ios/App\"",
           {
             "command": "nx build app --prod",
             "forwardAllArgs": false
