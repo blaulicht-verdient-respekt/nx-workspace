@@ -221,7 +221,7 @@
           },
           {
             "description": "Archive the project",
-            "command": "xcodebuild OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath \"./build/App.xcarchive\"",
+            "command": "xcodebuild CODE_SIGNING_IDENTITY=\"foo\" OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath \"./build/App.xcarchive\"",
             "forwardAllArgs": false
           },
           {
