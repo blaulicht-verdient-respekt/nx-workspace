@@ -57,4 +57,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          APPLE_PUBLISH_USER: ${{ secrets.APPLE_PUBLISH_USER }}
+          APPLE_PUBLISH_TOKEN: ${{ secrets.APPLE_PUBLISH_TOKEN }}
         run: 'npm run ci:release'
