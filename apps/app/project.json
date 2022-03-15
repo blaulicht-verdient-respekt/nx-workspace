@@ -200,28 +200,33 @@
         "parallel": false,
         "commands": [
           {
-            "description": "Set MARKETING_VERSION to {args.version}",
-            "command": "sed -i '' -e 's/MARKETING_VERSION \\= [^\\;]*\\;/MARKETING_VERSION = {args.version};/' App.xcodeproj/project.pbxproj",
+            "description": "exportOptions.plist: Set CFBundleVersion",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\" ./exportOptions.plist",
             "forwardAllArgs": false
           },
           {
-            "description": "Set CURRENT_PROJECT_VERSION to $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT",
-            "command": "sed -i '' -e 's/CURRENT_PROJECT_VERSION \\= [^\\;]*\\;/CURRENT_PROJECT_VERSION = \"$GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\";/' App.xcodeproj/project.pbxproj",
+            "description": "exportOptions.plist: Set CFBundleShortVersionString",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString {args.version}\" ./exportOptions.plist",
             "forwardAllArgs": false
           },
           {
-            "description": "Set CFBundleVersion",
-            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion string $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\" ./exportOptions.plist",
+            "description": "App/info.plist: Set CFBundleVersion",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\" ./App/info.plist",
             "forwardAllArgs": false
           },
           {
-            "description": "Set CFBundleShortVersionString",
-            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString string {args.version}\" ./exportOptions.plist",
+            "description": "App/info.plist: Set CFBundleShortVersionString",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString {args.version}\" ./App/info.plist",
             "forwardAllArgs": false
           },
           {
-            "description": "Print exportOptions",
+            "description": "Print ./exportOptions.plist",
             "command": "/usr/libexec/PlistBuddy -c \"Print\" ./exportOptions.plist",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Print ./App/info.plist",
+            "command": "/usr/libexec/PlistBuddy -c \"Print\" ./App/info.plist",
             "forwardAllArgs": false
           },
           {
@@ -245,8 +250,13 @@
             "forwardAllArgs": false
           },
           {
-            "description": "Print exportOptions",
+            "description": "Print ./exportOptions.plist",
             "command": "/usr/libexec/PlistBuddy -c \"Print\" ./exportOptions.plist",
+            "forwardAllArgs": false
+          },
+          {
+            "description": "Print ./App/info.plist",
+            "command": "/usr/libexec/PlistBuddy -c \"Print\" ./App/info.plist",
             "forwardAllArgs": false
           },
           {
