@@ -8,7 +8,7 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "prepare": "husky install",
-    "start": "nx serve",
+    "start": "nx run-many --all --target=serve --configuration=development",
     "build": "nx build",
     "test": "nx test",
     "semantic-release": "semantic-release"
