@@ -221,12 +221,12 @@
           },
           {
             "description": "Archive the project",
-            "command": "xcodebuild CODE_SIGNING_IDENTITY=\"foo\" OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath \"./build/App.xcarchive\"",
+            "command": "xcodebuild CODE_SIGNING_IDENTITY=\"iPhone Distribution: Kay Schecker (QJGQJZT8BD)\" OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -workspace App.xcworkspace -scheme App -configuration Release archive -archivePath \"./build/App.xcarchive\"",
             "forwardAllArgs": false
           },
           {
             "description": "Export the .ipa file",
-            "command": "xcodebuild -exportArchive -archivePath \"./build/App.xcarchive\" -exportOptionsPlist exportOptions.plist -exportPath \"./build\" -allowProvisioningUpdates",
+            "command": "xcodebuild CODE_SIGNING_IDENTITY=\"iPhone Distribution: Kay Schecker (QJGQJZT8BD)\" OTHER_CODE_SIGN_FLAGS=\"--keychain='$RUNNER_TEMP/app-signing.keychain-db'\" -exportArchive -archivePath \"./build/App.xcarchive\" -exportOptionsPlist exportOptions.plist -exportPath \"./build\" -allowProvisioningUpdates",
             "forwardAllArgs": false
           },
           {
