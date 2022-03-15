@@ -201,7 +201,7 @@
         "commands": [
           {
             "description": "exportOptions.plist: Set CFBundleVersion",
-            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\" ./exportOptions.plist",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $GITHUB_RUN_ID\" ./exportOptions.plist",
             "forwardAllArgs": false
           },
           {
@@ -211,7 +211,7 @@
           },
           {
             "description": "App/info.plist: Set CFBundleVersion",
-            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $GITHUB_RUN_NUMBER-$GITHUB_RUN_ATTEMPT\" ./App/info.plist",
+            "command": "/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $GITHUB_RUN_ID\" ./App/info.plist",
             "forwardAllArgs": false
           },
           {
