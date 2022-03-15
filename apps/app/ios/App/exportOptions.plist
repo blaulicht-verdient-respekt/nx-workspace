@@ -11,5 +11,9 @@
       <key>de.blaulicht-app.app</key>
       <string>Blaulicht App - AppStore</string>
     </dict>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
 </dict>
 </plist>
