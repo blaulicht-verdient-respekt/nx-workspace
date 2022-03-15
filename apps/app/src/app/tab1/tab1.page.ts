@@ -32,7 +32,7 @@ export class Tab1Page {
   }
 
   start() {
-    if (!this.platform.is('capacitor')) {
+    if (!this.platform.is('mobile')) {
       return;
     }
 
