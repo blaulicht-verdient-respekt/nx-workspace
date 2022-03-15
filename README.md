@@ -15,3 +15,9 @@ Finally, you can open the native platform in it's respective IDE:
 
 `nx run app:open:ios`
 `nx run app:open:android`
+
+### dev server
+
+Finally, you can open the native platform in it's respective IDE:
+
+`nx serve app`

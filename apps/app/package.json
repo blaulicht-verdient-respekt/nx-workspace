@@ -3,5 +3,9 @@
   "version": "0.0.0-development",
   "devDependencies": {
     "@capacitor/cli": "^3.2.5"
+  },
+  "dependencies": {
+    "@awesome-cordova-plugins/flashlight": "^5.40.0",
+    "cordova-plugin-flashlight": "^3.2.0"
   }
 }

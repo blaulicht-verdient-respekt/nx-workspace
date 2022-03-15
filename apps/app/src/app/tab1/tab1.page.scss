@@ -1,0 +1,11 @@
+::part(background):after {
+  background: #D90000 url(./0001.svg) center center no-repeat;
+  background-size: contain;
+
+  content: ' ';
+  position: absolute;
+  top: var(--offset-top);
+  left: 0;
+  right: 0;
+  bottom: var(--offset-bottom);
+}
