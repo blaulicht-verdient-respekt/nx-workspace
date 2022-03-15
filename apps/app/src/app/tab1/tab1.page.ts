@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { Flashlight } from '@awesome-cordova-plugins/flashlight';
-import { Platform } from '@ionic/angular';
+import {Component} from '@angular/core';
+import {FlashLightService} from "../services/flash-light.service";
 
 @Component({
   selector: 'app-tab1',
@@ -9,36 +8,10 @@ import { Platform } from '@ionic/angular';
 })
 export class Tab1Page {
 
-  private interval: any;
-  private readonly flashlight = Flashlight
-
-  constructor(private readonly platform: Platform) {
+  constructor(readonly flashLightService: FlashLightService) {
 
   }
 
-  ionViewDidEnter() {
-    this.start();
-  }
-
-  async toggle() {
-    if (this.interval) {
-      clearInterval(this.interval);
-      await this.flashlight.switchOff();
-      this.interval = null;
-      return;
-    }
-
-    this.start();
-  }
-
-  start() {
-    // if (!this.platform.is('mobile')) {
-    //   return;
-    // }
-
-    this.interval = setInterval(async () => {
-      await this.flashlight.toggle();
-    }, 200);
-  }
+  ionViewDidEnter = () => this.flashLightService.start();
 
 }
