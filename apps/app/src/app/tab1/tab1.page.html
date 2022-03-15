@@ -1,10 +1,8 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blaulicht verdient Respekt
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" (click)="flashLightService.toggle()">
+<ion-content [fullscreen]="true">
+  <div class="content" *ngIf="flashLightService.available | async">
+    <ion-button color="light" size="large" expand="full" (click)="flashLightService.toggle()">
+      <ion-icon slot="start" [name]="(flashLightService.isOn$ | async) ? 'flash-off-outline' : 'flash-outline'"></ion-icon>
+      Blitzlicht {{(flashLightService.isOn$ | async) ? 'ausschalten' : 'einschalten'}}
+    </ion-button>
+  </div>
 </ion-content>

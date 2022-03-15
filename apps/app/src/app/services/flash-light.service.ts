@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Flashlight } from '@awesome-cordova-plugins/flashlight';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class FlashLightService {
-  private interval?: number;
+  private interval$ = new BehaviorSubject<number | undefined>(undefined);
+
+  public readonly isOn$ = this.interval$.pipe(map(Boolean))
 
   async toggle() {
-    if (this.interval) {
-      clearInterval(this.interval);
+    if (this.interval$.value) {
+      clearInterval(this.interval$.value);
       await Flashlight.switchOff();
-      this.interval = undefined;
+      this.interval$.next(undefined);
       return;
     }
 
@@ -17,14 +20,14 @@ export class FlashLightService {
   }
 
   async start() {
-    if (!await this.available()) {
+    if (!await this.available) {
       return;
     }
 
-    this.interval = window.setInterval(async () => {
+    this.interval$.next(window.setInterval(async () => {
       await Flashlight.toggle();
-    }, 200);
+    }, 200));
   }
 
-  available = () => Flashlight.available().catch(() => false)
+  readonly available = Flashlight.available().catch(() => false)
 }
