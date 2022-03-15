@@ -1,14 +1,9 @@
-import {Flashlight} from '@awesome-cordova-plugins/flashlight';
-import {Injectable} from "@angular/core";
-import {Platform} from "@ionic/angular";
+import { Injectable } from '@angular/core';
+import { Flashlight } from '@awesome-cordova-plugins/flashlight';
 
 @Injectable({providedIn: 'root'})
 export class FlashLightService {
   private interval?: number;
-
-  constructor(private readonly platform: Platform) {
-
-  }
 
   async toggle() {
     if (this.interval) {
@@ -23,12 +18,11 @@ export class FlashLightService {
 
   async start() {
     if (!await this.available()) {
-      alert('FLASH LIGHT NOT AVAILABLE')
       return;
     }
 
     this.interval = window.setInterval(async () => {
-      await this.toggle();
+      await Flashlight.toggle();
     }, 200);
   }
 
