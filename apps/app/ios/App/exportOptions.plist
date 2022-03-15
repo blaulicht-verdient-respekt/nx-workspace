@@ -6,5 +6,10 @@
     <string>app-store</string>
     <key>teamID</key>
     <string>QJGQJZT8BD</string>
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>b2b5877d-0f4f-4507-92cf-776cd3930974</key>
+        <string>app-store</string>
+    </dict>
 </dict>
 </plist>
