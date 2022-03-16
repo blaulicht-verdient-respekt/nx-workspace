@@ -98,7 +98,7 @@
         "commands": [
           "cd apps/app-website && npm version {args.version}",
           {
-            "command": "ng build app --prod",
+            "command": "ng build app-website --prod",
             "forwardAllArgs": false
           },
           {
