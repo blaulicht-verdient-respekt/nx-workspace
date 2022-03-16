@@ -102,7 +102,7 @@
             "forwardAllArgs": false
           },
           {
-            "command": "cd dist/apps/app-website && firebase deploy --project bvr-app-website --token $FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE",
+            "command": "cd dist/apps/app-website && firebase deploy --project bvr-app-website",
             "forwardAllArgs": false
           }
         ]
