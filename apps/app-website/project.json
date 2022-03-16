@@ -89,7 +89,7 @@
         "jestConfig": "apps/app-website/jest.config.js",
         "passWithNoTests": true
       }
-    }
+    },
     "release": {
       "builder": "@nrwl/workspace:run-commands",
       "options": {
