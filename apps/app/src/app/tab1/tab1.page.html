@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <div class="content">
+  <div class="content" *ngIf="flashLightService.available | async">
     <ion-button color="light" size="large" expand="full" (click)="flashLightService.toggle()">
       <ion-icon slot="start" [name]="(flashLightService.isOn$ | async) ? 'flash-off-outline' : 'flash-outline'"></ion-icon>
       Blitzlicht {{(flashLightService.isOn$ | async) ? 'ausschalten' : 'einschalten'}}
