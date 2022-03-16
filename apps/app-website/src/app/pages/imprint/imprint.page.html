@@ -1,0 +1,43 @@
+<section class="bg-light">
+  <div class="container px-5">
+    <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+      <div class="col-12 col-lg-8">
+        <h2 class="display-4 lh-1 mb-12">Impressum</h2>
+        <blockquote style="margin-top: 2em" class="blockquote fs-6">
+          <h4>Herausgeber und inhaltliche Verantwortung:</h4>
+          <p class="fw-normal">
+            Winfried Feldmann und Dr. Christof Eichert<br />
+            c/o Karolinger Str. 118, 40223 Düsseldorf<br />
+            <ng-container *ngTemplateOutlet="defaultContact"></ng-container>
+          </p>
+
+          <h4>Entwickler und Technische Realisierung:</h4>
+          <p class="fw-normal">
+            Elmar Braun & Kay Schecker<br />
+            Niederrheinstr. 8a, 40474 Düsseldorf<br />
+            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#97;&#121;&#45;&#104;&#105;&#45;&#116;&#111;&#45;&#101;&#108;&#109;&#97;&#114;&#45;&#97;&#110;&#100;&#45;&#107;&#97;&#121;&#64;&#98;&#108;&#97;&#117;&#108;&#105;&#99;&#104;&#116;&#45;&#97;&#112;&#112;&#46;&#100;&#101;">
+              &#115;&#97;&#121;&#45;&#104;&#105;&#45;&#116;&#111;&#45;&#101;&#108;&#109;&#97;&#114;&#45;&#97;&#110;&#100;&#45;&#107;&#97;&#121;&#64;&#98;&#108;&#97;&#117;&#108;&#105;&#99;&#104;&#116;&#45;&#97;&#112;&#112;&#46;&#100;&#101;
+            </a>
+            <br />
+            <a href="https://blaulicht-app.de">https://blaulicht-app.de</a>
+          </p>
+
+          <h4>Urheberrechte für Logo, Bilder und Schriften:</h4>
+          <p class="fw-normal">
+            Winfried Feldmann, Werbegrafiker<br />
+            Karolinger Str. 118, 40223 Düsseldorf<br />
+            <ng-container *ngTemplateOutlet="defaultContact"></ng-container>
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #defaultContact>
+  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#105;&#110;&#102;&#111;&#64;&#98;&#108;&#97;&#117;&#108;&#105;&#99;&#104;&#116;&#45;&#97;&#112;&#112;&#46;&#100;&#101;">
+    &#105;&#110;&#102;&#111;&#64;&#98;&#108;&#97;&#117;&#108;&#105;&#99;&#104;&#116;&#45;&#97;&#112;&#112;&#46;&#100;&#101;
+  </a>
+  <br />
+  <a href="https://blaulicht-app.de">https://blaulicht-app.de</a>
+</ng-template>

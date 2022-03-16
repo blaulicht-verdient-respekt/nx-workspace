@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot([{
+    path: '',
+    loadChildren: () => import('./app.routing.module'),
+  }], {
+    scrollPositionRestoration: 'enabled',
+  })],
   providers: [],
   bootstrap: [AppComponent],
 })
