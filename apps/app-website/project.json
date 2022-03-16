@@ -90,23 +90,23 @@
         "passWithNoTests": true
       }
     }
-  },
-  "release": {
-    "builder": "@nrwl/workspace:run-commands",
-    "options": {
-      "cwd": "./",
-      "parallel": false,
-      "commands": [
-        "cd apps/app-website && npm version {args.version}",
-        {
-          "command": "ng build app --prod",
-          "forwardAllArgs": false
-        },
-        {
-          "command": "cd dist/apps/app-website && firebase deploy --project bvr-app-website --token $FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE",
-          "forwardAllArgs": false
-        }
-      ]
+    "release": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "./",
+        "parallel": false,
+        "commands": [
+          "cd apps/app-website && npm version {args.version}",
+          {
+            "command": "ng build app --prod",
+            "forwardAllArgs": false
+          },
+          {
+            "command": "cd dist/apps/app-website && firebase deploy --project bvr-app-website --token $FIREBASE_SERVICE_ACCOUNT_BVR_APP_WEBSITE",
+            "forwardAllArgs": false
+          }
+        ]
+      }
     }
   },
   "tags": []
