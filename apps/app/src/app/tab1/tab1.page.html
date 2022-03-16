@@ -1,8 +1,11 @@
-<ion-content [fullscreen]="true">
-  <div class="content" *ngIf="flashLightService.available | async">
-    <ion-button color="light" size="large" expand="full" (click)="flashLightService.toggle()">
-      <ion-icon slot="start" [name]="(flashLightService.isOn$ | async) ? 'flash-off-outline' : 'flash-outline'"></ion-icon>
-      Blitzlicht {{(flashLightService.isOn$ | async) ? 'ausschalten' : 'einschalten'}}
-    </ion-button>
-  </div>
+<ion-content [fullscreen]="false" [scrollY]="false">
+  <ion-icon *ngIf="(fs.isOn$ | async)" name="flash-sharp"></ion-icon>
 </ion-content>
+<ion-footer>
+  <ng-container *ngIf="fs.available | async">
+    <ion-button color="light" size="large" expand="full" (click)="fs.toggle()">
+      <ion-icon slot="start" [name]="(fs.isOn$ | async) ? 'flash-off-outline' : 'flash-outline'"></ion-icon>
+      Blitzlicht {{(fs.isOn$ | async) ? 'ausschalten' : 'einschalten'}}
+    </ion-button>
+  </ng-container>
+</ion-footer>

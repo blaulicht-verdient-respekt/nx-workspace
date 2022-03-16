@@ -5,6 +5,7 @@ const config: CapacitorConfig = {
   appName: 'Blaulicht App',
   webDir: '../../dist/apps/app',
   bundledWebRuntime: false,
+  includePlugins: ['capacitor-flash']
 };
 
 export default config;

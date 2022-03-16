@@ -10,6 +10,18 @@
   bottom: var(--offset-bottom);
 }
 
-.content {
-  padding-top: 80px;
+ion-content ion-icon {
+  font-size: 3em;
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: var(--ion-safe-area-top);
+  left: 50%;
+  transform: translate(-50%, 15px);
+  animation: flash 400ms linear infinite;
+}
+
+@keyframes flash {
+  50% {
+    opacity: 0;
+  }
 }

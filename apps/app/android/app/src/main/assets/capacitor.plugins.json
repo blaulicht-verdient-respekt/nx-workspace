@@ -1,1 +1,6 @@
-[]
+[
+	{
+		"pkg": "capacitor-flash",
+		"classpath": "ee.forgr.plugin.capacitor_flash.CapacitorFlashPlugin"
+	}
+]
