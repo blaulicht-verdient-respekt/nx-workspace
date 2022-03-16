@@ -10,9 +10,6 @@ import { FlashLightService } from '../services/flash-light.service';
 export class Tab1Page {
 
   constructor(readonly fs: FlashLightService) {
-
   }
-
-  ionViewDidEnter = () => this.fs.start();
 
 }
