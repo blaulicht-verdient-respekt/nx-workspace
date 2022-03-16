@@ -17,7 +17,7 @@ ion-content ion-icon {
   top: var(--ion-safe-area-top);
   left: 50%;
   transform: translate(-50%, 15px);
-  animation: flash 400ms linear infinite;
+  animation: flash 500ms linear infinite;
 }
 
 @keyframes flash {
