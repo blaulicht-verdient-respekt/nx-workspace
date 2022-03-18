@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CapacitorFlash } from 'capacitor-flash';
+// import { CapacitorFlash } from 'capacitor-flash';
 import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
@@ -21,6 +21,7 @@ export class FlashLightService {
   }
 
   async start() {
+    // return;
     if (!await this.available || this.interval$.value) {
       return;
     }
@@ -31,18 +32,18 @@ export class FlashLightService {
       } else {
         await this.switchOn();
       }
-    }, 250));
+    }, 10));
   }
 
   private async switchOn() {
-    await CapacitorFlash.switchOn({intensity: 1});
+    // await CapacitorFlash.switchOn({intensity: 1});
     this.capacitorFlashOn$.next(true);
   }
 
   private async switchOff() {
-    await CapacitorFlash.switchOff();
+    // await CapacitorFlash.switchOff();
     this.capacitorFlashOn$.next(false);
   }
 
-  readonly available = CapacitorFlash.isAvailable().then(({value}) => value).catch(() => false)
+  readonly available = Promise.resolve(true); // CapacitorFlash.isAvailable().then(({value}) => value).catch(() => false)
 }

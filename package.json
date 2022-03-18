@@ -27,7 +27,6 @@
     "@capacitor/core": "^3.2.5",
     "@ionic/angular": "^5.8.3",
     "@nrwl/angular": "13.8.8",
-    "capacitor-flash": "^1.1.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
