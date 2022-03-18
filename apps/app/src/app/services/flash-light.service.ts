@@ -54,7 +54,6 @@ export class FlashLightService {
   readonly available = new Promise<boolean>(async(resolve) => {
     await this.platform.ready();
     const available = this.platform.is('cordova') ? await this.flashlight.available() : false;
-    alert(available);
     resolve(available);
   })
 }
