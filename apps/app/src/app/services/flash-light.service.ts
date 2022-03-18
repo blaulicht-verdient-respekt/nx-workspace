@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-// import { CapacitorFlash } from 'capacitor-flash';
+import { Flashlight } from '@awesome-cordova-plugins/flashlight/ngx';
+import { Platform } from '@ionic/angular';
+
 import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
@@ -8,6 +10,11 @@ export class FlashLightService {
   private capacitorFlashOn$ = new BehaviorSubject<boolean>(false);
 
   public readonly isOn$ = this.interval$.pipe(map(Boolean))
+
+  constructor(
+    private flashlight: Flashlight,
+    private platform: Platform,
+  ) { }
 
   async toggle() {
     if (this.interval$.value) {
@@ -21,7 +28,6 @@ export class FlashLightService {
   }
 
   async start() {
-    // return;
     if (!await this.available || this.interval$.value) {
       return;
     }
@@ -32,18 +38,23 @@ export class FlashLightService {
       } else {
         await this.switchOn();
       }
-    }, 10));
+    }, 250));
   }
 
   private async switchOn() {
-    // await CapacitorFlash.switchOn({intensity: 1});
+    await this.flashlight.switchOn();
     this.capacitorFlashOn$.next(true);
   }
 
   private async switchOff() {
-    // await CapacitorFlash.switchOff();
+    await this.flashlight.switchOff();
     this.capacitorFlashOn$.next(false);
   }
 
-  readonly available = Promise.resolve(true); // CapacitorFlash.isAvailable().then(({value}) => value).catch(() => false)
+  readonly available = new Promise<boolean>(async(resolve) => {
+    await this.platform.ready();
+    const available = this.platform.is('cordova') ? await this.flashlight.available() : false;
+    alert(available);
+    resolve(available);
+  })
 }

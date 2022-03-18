@@ -2,8 +2,5 @@
 	"appId": "de.blaulicht-app.app",
 	"appName": "Blaulicht App",
 	"webDir": "../../dist/apps/app",
-	"bundledWebRuntime": false,
-	"includePlugins": [
-		"capacitor-flash"
-	]
+	"bundledWebRuntime": false
 }
