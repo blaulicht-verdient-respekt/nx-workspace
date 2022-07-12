@@ -2,10 +2,13 @@
   "name": "app",
   "version": "0.0.0-development",
   "devDependencies": {
-    "@capacitor/cli": "^3.2.5"
+    "@capacitor/cli": "^3.4.3"
   },
   "dependencies": {
     "@awesome-cordova-plugins/flashlight": "^5.40.0",
+    "@capacitor/android": "^3.4.3",
+    "@capacitor/core": "^3.4.3",
+    "@capacitor/ios": "^3.4.3",
     "cordova-plugin-flashlight": "^3.2.0"
   }
 }
