@@ -11,7 +11,7 @@
     "start": "nx run-many --all --target=serve --configuration=development",
     "build": "nx build",
     "generate:assets": "cd apps/app && cordova-res ios --skip-config --copy --ios-project=\"ios/App\"",
-    "generate:assets android": "cd apps/app && cordova-res android --skip-config --copy --android-project=\"android/App\"",
+    "generate:assets:android": "cd apps/app && cordova-res android --skip-config --copy --android-project=\"ios/app\"",
     "test": "nx test",
     "android build": "nx build – project=bvr",
     "android run": "nx run bvr:sync:android",
